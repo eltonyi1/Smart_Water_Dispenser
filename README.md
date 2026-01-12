@@ -166,13 +166,13 @@ If you need to adjust the ultrasonic detection sensitivity:
 2. Collect raw waveform data from the device (`s:xxx,xxx...`).
 3. Use scripts in `Tools/Algo_Simulation` to visualize data and adjust parameters (see subdirectory README for details).
 
-## � Contributors
+## Contributors
 
 - **Junyi Yu (Project Leader)**: System architecture, core software development (algorithm, state machine, DMA), and system integration.
 - **Jiayuan Xiong**: Hardware circuit design, PCB fabrication, power management, and driver circuits.
 - **Xi Kang**: Mechanical structure design, 3D modeling (optimized for sensor placement), and assembly.
 
-## �📝 Contribution
+## 📝 Contribution
 Issues and Pull Requests are welcome to improve this project, whether for algorithm optimization or hardware improvements.
 
 ## 📄 License
