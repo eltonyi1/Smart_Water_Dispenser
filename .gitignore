@@ -1,0 +1,27 @@
+# STM32CubeIDE / Build output
+**/Debug/
+**/Release/
+*.list
+*.map
+*.elf
+*.bin
+*.hex
+*.su
+*.o
+*.d
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE Specific (Optional - remove if you want to share settings)
+.settings/
+.vscode/
