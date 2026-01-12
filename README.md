@@ -1,6 +1,6 @@
 # Smart Water Dispenser (智能饮水机)
 
-
+[中文](#smart-water-dispenser-智能饮水机) | [English](#smart-water-dispenser-english)
 
 这是一个基于 STM32 和超声波传感技术的智能饮水机项目。该项目包含完整的硬件设计（PCB、3D模型）、嵌入式控制软件以及与之配套的超声波信号处理算法仿真工具。
 
@@ -80,4 +80,89 @@
 欢迎提交 Issue 或 Pull Request 来改进本项目，无论是算法优化还是硬件改进。
 
 ## 📄 许可证
-本项目开源，请遵守相关许可证协议（如有）。
+本项目开源，请遵守相关许可证协议。
+
+---
+
+# Smart Water Dispenser (English)
+
+This is a smart water dispenser project based on STM32 and ultrasonic sensing technology. The project includes complete hardware design (PCB, 3D models), embedded control software, and accompanying ultrasonic signal processing algorithm simulation tools.
+
+## Project Introduction
+
+This project aims to design a water dispenser system capable of intelligently detecting cups and liquid levels and automatically controlling water dispensing. The core highlight is the use of custom signal processing algorithms to analyze ultrasonic echo signals, thereby accurately identifying container status through different echo characteristics (cup wall reflection, liquid surface reflection, etc.) and setting dynamic thresholds for control.
+
+![Ultrasonic Threshold Algorithm](Docs/images/Threshold.png)
+
+Key Features:
+- **Ultrasonic Level/Container Detection**: Uses an ultrasonic module to obtain echo signals and identifies the container and its position through algorithms.
+- **Smart Dispensing Control**: Automatically controls the water pump start/stop based on detection results.
+- **Threshold Algorithm**: Includes Python prototype verification and C language porting to ensure detection robustness.
+
+### Overall Appearance
+![Device Front View](Docs/images/Device_Front.jpg)
+
+## 📁 Directory Structure
+
+```
+.
+├── Docs/                   # Project Documentation
+│   ├── 系统技术说明文档.pdf # Detailed technical implementation and system design documentation (Chinese)
+│   ├── 超声波模块/          # Ultrasonic module related materials
+│   └── 演示视频/            # System function demonstration
+├── Hardware/               # Hardware Design Resources
+│   ├── 3D_Model/           # 3D model files for casing and structural parts
+│   └── PCB/                # Circuit design files (EasyEDA Pro project)
+├── Tools/                  # Development Tools
+│   ├── Algo_Simulation/    # Python simulation and verification tools for ultrasonic threshold algorithm
+│   └── 超声波模块测试工具/  # Early testing tools
+└── water_dispenser3/       # Embedded Software Project (STM32CubeIDE)
+    ├── Core/               # Core Code (main.c, ultrasonic_threshold.c, etc.)
+    └── Drivers/            # HAL Library and Drivers
+```
+
+## 🛠️ Hardware Scheme
+
+- **Main Controller**: STM32F103C8T6
+- **Core Sensor**: TDK CH101 based ultrasonic ranging module UETCH101DBB0900AT (Available at Aojiacheng Electronic Mall on Taobao)
+- **Actuator**: Micro DC water pump
+- **Circuit Design**: Designed using EasyEDA Pro. Complete project files are included in the `Hardware/PCB` directory.
+
+## 💻 Software Architecture
+
+### 1. Embedded Software (`water_dispenser3`)
+Developed based on STM32CubeIDE, using the HAL library.
+- **Core Logic**: `Core/Src/main.c` is responsible for the system state machine and peripheral control.
+- **Signal Processing**: `Core/Src/ultrasonic_threshold.c` is the C language algorithm implementation ported from the Python version, responsible for:
+    - Signal Smoothing (Moving Average)
+    - Peak Detection
+    - Peak Classification and Merging
+    - Dynamic Threshold Calculation
+- **Control Mode**: Supports PWM or GPIO mode to control the water pump (configurable in `main.c`).
+
+### 2. Algorithm Simulation (`Tools/Algo_Simulation`)
+Before deploying the algorithm to the MCU, we use Python to analyze the collected raw ultrasonic data and verify the algorithm. For details, please refer to the README in that directory.
+
+## 🚀 Quick Start
+
+### Hardware Preparation
+1. Refer to `Hardware/PCB` to manufacture the circuit board and complete soldering.
+2. Print the casing and assemble according to `Hardware/3D_Model`.
+
+### Software Flashing
+1. Open the `water_dispenser3` directory using STM32CubeIDE.
+2. Build the project (Release/Debug).
+3. Use ST-Link/J-Link to flash the firmware to STM32F103C8T6.
+
+### Algorithm Debugging
+If you need to adjust the ultrasonic detection sensitivity:
+1. Connect the device using `Tools/Algo_Simulation/UARTAss.py` or other serial tools.
+2. Collect raw waveform data from the device (`s:xxx,xxx...`).
+3. Use scripts in `Tools/Algo_Simulation` to visualize data and adjust parameters (see subdirectory README for details).
+
+## 📝 Contribution
+Issues and Pull Requests are welcome to improve this project, whether for algorithm optimization or hardware improvements.
+
+## 📄 License
+This project is open source. Please comply with the relevant license agreement.
+
