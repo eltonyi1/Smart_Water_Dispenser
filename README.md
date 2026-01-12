@@ -76,7 +76,13 @@
 2. 采集设备的原始波形数据 (`s:xxx,xxx...`)。
 3. 利用 `Tools/Algo_Simulation` 中的脚本可视化数据并调整参数（详见子目录 README）。
 
-## 📝 贡献
+## � 项目成员
+
+- **余俊毅（项目负责人）**：负责系统整体构建、核心算法（状态机、DMA、自适应阈值）软件开发及系统联调。
+- **熊家源**：负责硬件电路设计与制作，包括电源管理（12V转3.3V）、水泵驱动及传感器接口电路。
+- **康曦**：负责机械结构设计与3D建模，优化传感器安装位置以适配不同水杯，并完成打印组装。
+
+## �📝 贡献
 欢迎提交 Issue 或 Pull Request 来改进本项目，无论是算法优化还是硬件改进。
 
 ## 📄 许可证
@@ -160,7 +166,13 @@ If you need to adjust the ultrasonic detection sensitivity:
 2. Collect raw waveform data from the device (`s:xxx,xxx...`).
 3. Use scripts in `Tools/Algo_Simulation` to visualize data and adjust parameters (see subdirectory README for details).
 
-## 📝 Contribution
+## � Contributors
+
+- **Junyi Yu (Project Leader)**: System architecture, core software development (algorithm, state machine, DMA), and system integration.
+- **Jiayuan Xiong**: Hardware circuit design, PCB fabrication, power management, and driver circuits.
+- **Xi Kang**: Mechanical structure design, 3D modeling (optimized for sensor placement), and assembly.
+
+## �📝 Contribution
 Issues and Pull Requests are welcome to improve this project, whether for algorithm optimization or hardware improvements.
 
 ## 📄 License
